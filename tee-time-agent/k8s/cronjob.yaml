@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: tee-time-agent
+  labels:
+    app: tee-time-agent
+spec:
+  schedule: "5 6 * * *"
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            app: tee-time-agent
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: tee-time-agent
+              image: ghcr.io/your-org/tee-time-agent:latest
+              imagePullPolicy: IfNotPresent
+              envFrom:
+                - secretRef:
+                    name: tee-time-agent-secrets
+              args:
+                - "--"
+              resources:
+                requests:
+                  cpu: 100m
+                  memory: 256Mi
+                limits:
+                  cpu: 500m
+                  memory: 512Mi
