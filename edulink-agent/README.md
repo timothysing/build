@@ -92,8 +92,9 @@ For conversational access, import `n8n/edulink-chat.json`. It listens for incomi
 | `EDULINK_BASE_URL` | Base URL for Edulink (defaults to `https://www.edulinkone.com`). |
 | `EDULINK_HEADLESS` | `"true"`/`"false"` toggle for Playwright headless mode (default `true`). |
 | `EDULINK_TIMEOUT_SECONDS` | Page interaction timeout (default `30`). |
-| `EDULINK_TIMEZONE` | Timezone identifier for “yesterday” calculations (default `Europe/London`). |
+| `EDULINK_TIMEZONE` | Timezone identifier for “yesterday” calculations (default `Europe/London`). | 
 | `EDULINK_CHILD_NAME` | Optional child name to include in the summary header. |
+
 
 Configure Telegram and email delivery inside n8n; no additional variables are required for the service itself.
 
