@@ -101,6 +101,7 @@ Configure Telegram and email delivery inside n8n; no additional variables are re
 
 * Unit tests are not included but the modular structure makes it easy to mock Playwright interactions.*
 
+
 Manual sanity checks:
 
 1. Run the CLI locally (`edulink-agent`) and verify the textual summary output.

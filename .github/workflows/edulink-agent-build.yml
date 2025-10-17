@@ -3,10 +3,12 @@ name: Edulink Agent Build
 on:
   push:
     paths:
-      - 'build/edulink-agent/**'
+      - 'edulink-agent/**'
+      - '.github/workflows/edulink-agent-build.yml'
   pull_request:
     paths:
-      - 'build/edulink-agent/**'
+      - 'edulink-agent/**'
+      - '.github/workflows/edulink-agent-build.yml'
 
 jobs:
   build-image:
@@ -20,5 +22,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build edulink-agent container image
-        working-directory: build/edulink-agent
+        working-directory: edulink-agent
         run: docker build -t edulink-agent:ci .
