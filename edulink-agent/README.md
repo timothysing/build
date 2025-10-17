@@ -95,7 +95,6 @@ For conversational access, import `n8n/edulink-chat.json`. It listens for incomi
 | `EDULINK_TIMEZONE` | Timezone identifier for “yesterday” calculations (default `Europe/London`). | 
 | `EDULINK_CHILD_NAME` | Optional child name to include in the summary header. |
 
-
 Configure Telegram and email delivery inside n8n; no additional variables are required for the service itself.
 
 ## Testing
