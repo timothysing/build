@@ -1,0 +1,24 @@
+name: Edulink Agent Build
+
+on:
+  push:
+    paths:
+      - 'build/edulink-agent/**'
+  pull_request:
+    paths:
+      - 'build/edulink-agent/**'
+
+jobs:
+  build-image:
+    runs-on:
+      - self-hosted
+      - linux
+      - x64
+      - dind
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build edulink-agent container image
+        working-directory: build/edulink-agent
+        run: docker build -t edulink-agent:ci .

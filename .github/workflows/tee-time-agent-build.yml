@@ -1,0 +1,24 @@
+name: Tee Time Agent Build
+
+on:
+  push:
+    paths:
+      - 'tee-time-agent/**'
+  pull_request:
+    paths:
+      - 'tee-time-agent/**'
+
+jobs:
+  build-image:
+    runs-on:
+      - self-hosted
+      - linux
+      - x64
+      - dind
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build tee-time-agent container image
+        working-directory: tee-time-agent
+        run: docker build -t tee-time-agent:ci .
